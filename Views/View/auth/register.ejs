@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register To Roar</title>
+    <%-include("../../template/favIconHTML.ejs")%>
+    <%-include("../../template/NavBarCssLink.ejs")%>
+    <%-include("../../template/userRegisterCSSLink.ejs")%>
+  </head>
+  <body>
+    <%- include("../../template/overlay.ejs")%> <%-
+    include("../../template/navBarHTML.ejs")%>
+    <section class="mainContent">
+      <div class="adArea">
+        <div class="adContainer">
+          <fieldset>
+            <legend>Advertisement</legend>
+            <div class="ad"></div>
+          </fieldset>
+        </div>
+      </div>
+      <section class="registerPanel">
+        <div class="headline">
+          <h1>Register To Roar</h1>
+        </div>
+        <div class="userImageArea"></div>
+        <div class="registrationArea">
+          <table cellspacing="0">
+            <tr>
+              <th>Name</th>
+              <td>
+                <input type="text" class="name" placeholder="Enter Name" />
+              </td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>
+                <input type="email" class="email" placeholder="Enter Email" />
+              </td>
+            </tr>
+            <tr>
+              <th>Password</th>
+              <td>
+                <input
+                  type="password"
+                  class="password"
+                  placeholder="Enter password"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Confirm Password</th>
+              <td>
+                <input
+                  type="password"
+                  class="cnfPassword"
+                  placeholder="Confirm password"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Photo</th>
+              <td><input type="file" class="userPhoto" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <input type="button" class="subBtn btn" value="Register" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <script src="/js/mobile/navBarJS.js"></script>
+    <script src="/js/mobile/userRegister.js"></script>
+  </body>
+</html>

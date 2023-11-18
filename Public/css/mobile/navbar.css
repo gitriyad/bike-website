@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
+/* global styling */
+.btn {
+  box-shadow: 0 0 2rem 0.5rem rgba(255, 255, 255, 0.5) inset;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+  background-color: var(--dark-purple);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+.headline {
+  font-family: "Agbalumo", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  font-size: 2rem;
+  background-image: linear-gradient(45deg, var(--dark-purple), rgb(0, 0, 0));
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: slidingText 20s linear infinite forwards;
+  -webkit-animation: slidingText 20s linear infinite forwards;
+  white-space: nowrap;
+  margin: 0.5rem 0 1rem 0;
+}
+@keyframes slidingText {
+  0% {
+    background-position: 300% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "EB Garamond", sans-serif;
+}
+
+/* Root Variables */
+:root {
+  --main-background-color: rgb(255, 255, 255); /* White background */
+  --dark-purple: rgb(75, 0, 130); /* Dark purple color */
+  --light-purple: rgb(147, 112, 219); /* Light purple color */
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.3rem;
+}
+.logoArea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  background-image: url("/Photos/icon/motorbike.png");
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-size: cover;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  box-shadow: 0rem 0rem 1rem 0.2rem var(--dark-purple);
+  margin-right: 0.3rem;
+}
+.slogan {
+  font-family: "Agbalumo", sans-serif;
+  background-image: linear-gradient(to left, var(--dark-purple), rgb(0, 0, 0));
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: slidingText 5s linear infinite forwards;
+  -webkit-animation: slidingText 5s linear infinite forwards;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+@keyframes slidingText {
+  0% {
+    background-position: 300% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.account {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transform-style: preserve-3d;
+  perspective: 100rem;
+  perspective-origin: center;
+  cursor: pointer;
+  z-index: 3;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accText {
+  margin-right: 0.2rem;
+}
+.accIcon {
+  margin-top: -4px;
+}
+
+.accOption {
+  position: absolute;
+  top: 2rem;
+  left: -3rem;
+  background-image: linear-gradient(
+    291deg,
+    var(--light-purple),
+    var(--dark-purple)
+  );
+  padding: 1rem;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  overflow: hidden;
+  transform: rotateX(270deg);
+  -webkit-transform: rotateX(270deg);
+  -moz-transform: rotateX(270deg);
+  -ms-transform: rotateX(270deg);
+  -o-transform: rotateX(270deg);
+  transform-origin: top;
+  transition: transform 0.5s linear;
+  -webkit-transition: transform 0.5s linear;
+  -moz-transition: transform 0.5s linear;
+  -ms-transition: transform 0.5s linear;
+  -o-transition: transform 0.5s linear;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.accOption::before {
+  content: "";
+  position: absolute;
+  height: 300%;
+  width: 100%;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 1), transparent);
+  z-index: -1;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  left: -1rem;
+  top: -250%;
+  transition: top 0.3s linear;
+  -webkit-transition: top 0.3s linear;
+  -moz-transition: top 0.3s linear;
+  -ms-transition: top 0.3s linear;
+  -o-transition: top 0.3s linear;
+  transition-delay: 0.5s;
+}
+.accOption.reveal::before {
+  top: 100%;
+}
+.navDes {
+  color: white;
+  margin: 1.2rem;
+  border-bottom: 1px solid white;
+  width: 100%;
+  text-align: center;
+  padding: 0.3rem 0;
+  cursor: pointer;
+}
+.filterIcon {
+  font-size: 1.2rem;
+}

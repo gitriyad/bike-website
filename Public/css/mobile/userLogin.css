@@ -1,0 +1,69 @@
+.overlay {
+  display: none;
+}
+
+/* Styling For login Area */
+.headline {
+  font-family: "Agbalumo", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  font-size: 1.6rem;
+  background-image: linear-gradient(45deg, var(--dark-purple), rgb(0, 0, 0));
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: slidingText 20s linear infinite forwards;
+  -webkit-animation: slidingText 20s linear infinite forwards;
+  white-space: nowrap;
+  margin: 0.5rem 0 1rem 0;
+}
+@keyframes slidingText {
+  0% {
+    background-position: 300% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.loginArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loginContainer {
+  height: 60vh;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/Photos/loginBackground/loginBackground.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tableContent {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  height: 95%;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  width: 98%;
+}
+th {
+  padding: 1.2rem 1rem;
+}
+input {
+  width: 95%;
+  height: 95%;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.1rem;
+}
+.subBtn {
+  margin: 1rem 0.2rem;
+}

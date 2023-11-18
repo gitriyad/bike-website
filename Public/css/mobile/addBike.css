@@ -1,0 +1,125 @@
+table {
+  margin: 0 auto;
+  max-width: 90vw;
+  width: 100%;
+}
+th {
+  padding: 1rem 0.5rem;
+}
+.multipleInput {
+  text-align: center;
+  font-weight: bolder;
+}
+input[type="text"],
+input[type="number"] {
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.flexTd {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tagContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+}
+.tag {
+  background-color: #e4e2e5;
+  margin: 0 0.2rem 0.2rem 0;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+}
+span.removeTag {
+  margin: 0 0 0 0.4rem;
+  background-color: #bc81e9;
+  padding: 0.1rem 0.5rem;
+  border-radius: 50%;
+  font-weight: bolder;
+  cursor: pointer;
+}
+input.tagInput {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+th,
+td {
+  max-width: 51vw;
+}
+.addBikeTable tr:nth-child(2n) {
+  background-color: #bc81e9;
+  position: relative;
+  z-index: 2;
+}
+.addBikeTable tr:nth-child(2n + 1) {
+  background-color: #dbdadb;
+  position: relative;
+  z-index: 2;
+}
+table.addBikeTable {
+  user-select: none;
+}
+.addBikeTable tr::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(6 6 6 / 50%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  -webkit-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -ms-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+}
+.addBikeTable tr:hover::before {
+  opacity: 0.4;
+}
+.submitArea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.save,
+.upload {
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+}
+.imagesViewArea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.bikeImg {
+  position: relative;
+  height: 20vh;
+  width: 35vw;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 1rem;
+}
+span.removeImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bolder;
+  background: #5f5dcf;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}

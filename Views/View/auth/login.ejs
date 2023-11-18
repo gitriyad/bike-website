@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login To Start</title>
+    <%-include("../../template/favIconHTML.ejs")%>
+    <%-include("../../template/NavBarCssLink.ejs")%>
+    <%-include("../../template/userLoginCSSLink.ejs")%>
+  </head>
+  <body>
+    <%- include("../../template/overlay.ejs")%> <%-
+    include("../../template/navBarHTML.ejs")%>
+    <div class="loginArea">
+      <div class="headline">
+        <h1>Login To Start</h1>
+      </div>
+      <div class="loginContainer">
+        <div class="tableContent">
+          <table cellspacing="0">
+            <tr>
+              <th>Email</th>
+              <td><input type="text" class="email" /></td>
+            </tr>
+            <tr>
+              <th>Password</th>
+              <td><input type="password" class="password" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <span class="notification"></span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <input type="button" class="subBtn btn" value="Log In" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/mobile/navBarJS.js"></script>
+    <script src="/js/mobile/userLogin.js"></script>
+  </body>
+</html>

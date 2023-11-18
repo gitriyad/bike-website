@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riders Point::Trusfull Point For Riders</title>
+    <%-include("../../template/favIconHTML.ejs")%>
+    <%-include("../../template/NavBarCssLink.ejs")%>
+    <%-include("../../template/adminDashboardCSSLink.ejs")%>
+  </head>
+  <body>
+    <%- include("../../template/overlay.ejs")%> <%-
+    include("../../template/navBarHTML.ejs")%>
+    <section class="scrollingContent">
+      <section class="controlPanel">
+        <div class="addBike btn navDes" data-url="/addBike">Add Bike</div>
+        <div class="published btn navDes">
+          Published Bikes<span class="count"></span>
+        </div>
+        <div class="unpublished btn navDes">
+          Unpublished Bike<span class="count"></span>
+        </div>
+        <div class="pending btn navDes">
+          Pending Bikes<span class="count"></span>
+        </div>
+        <div class="userActivy btn navDes">User Activity</div>
+        <div class="visitorActivity btn navDes">Visitor Activity</div>
+      </section>
+      <div class="viewArea"></div>
+    </section>
+
+    <script src="/js/mobile/navBarJS.js"></script>
+    <script src="/js/mobile/adminDashboard.js"></script>
+    <script src="/js/mobile/addBike.js"></script>
+  </body>
+</html>

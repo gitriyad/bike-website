@@ -1,0 +1,35 @@
+/* Overlay */
+.overlay {
+  display: none;
+}
+/* Control Panel Styling */
+.scrollingContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 95vw;
+  height: calc(100vh - 150px);
+  overflow: scroll;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.controlPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.controlPanel > div {
+  width: 36vw;
+  white-space: nowrap;
+  padding: 1rem 0.5rem;
+}
+/* View Area Styling */
+.viewArea {
+  width: 90vw;
+  height: 100vh;
+  flex-shrink: 0;
+}

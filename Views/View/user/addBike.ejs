@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riders Point::Trusfull Point For Riders</title>
+    <%-include("../../template/addBikeCSSLink.ejs")%>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="headline">Add Bike</div>
+      <div class="bikeInfo">
+        <table class="addBikeTable" border="1" cellspacing="0">
+          <tr>
+            <th colspan="2" align="center">Bike Information</th>
+          </tr>
+          <tr>
+            <th>Bike Name</th>
+            <td><input type="text" class="bikeName" /></td>
+          </tr>
+          <tr>
+            <th>Brand</th>
+            <td><input type="text" class="brand" /></td>
+          </tr>
+          <tr>
+            <th>CC</th>
+            <td><input type="number" class="cc" /></td>
+          </tr>
+          <tr>
+            <th>Regular Price</th>
+            <td><input type="number" class="regPrice" /></td>
+          </tr>
+          <tr>
+            <th>Offer Price</th>
+            <td><input type="number" class="offPrice" /></td>
+          </tr>
+          <tr>
+            <th>Bike Type</th>
+            <td><input type="text" class="bikeType" /></td>
+          </tr>
+          <tr>
+            <th>Distributor</th>
+            <td><input type="text" class="dist" /></td>
+          </tr>
+          <tr>
+            <th>Model Year</th>
+            <td><input type="number" class="modYear" /></td>
+          </tr>
+          <tr>
+            <th>Brand Origin</th>
+            <td><input type="text" class="brandOrigin" /></td>
+          </tr>
+          <tr>
+            <th>Assemble In</th>
+            <td><input type="text" class="assIn" /></td>
+          </tr>
+          <tr>
+            <th>Available Colours</th>
+            <td>
+              <div class="flexTd">
+                <div class="avColorsDiv tagContainer"></div>
+                <input
+                  type="text"
+                  class="avColors tagInput"
+                  onkeydown="tagHandler(this,event)"
+                  placeholder="Enter Colour Tags"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Engine</th>
+          </tr>
+          <tr>
+            <th>Engine Type</th>
+            <td>
+              <div class="flexTd">
+                <div class="engineType tagContainer"></div>
+                <input
+                  type="text"
+                  class="engineType tagInput"
+                  onkeydown="tagHandler(this,event)"
+                  placeholder="Enter Engine Type Tags"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Displacement</th>
+            <td><input type="text" class="disp" /></td>
+          </tr>
+          <tr>
+            <th>Maximum Power</th>
+            <td class="multipleInput">
+              <label for="maxPowValue">Value</label>
+              <input type="number" class="maxPowValue" id="maxPowValue" /><br />
+              <label for="maxPowUnit">Unit</label>
+              <input type="text" class="maxPowUnit" id="maxPowUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Maximum Torque</th>
+            <td class="multipleInput">
+              <label for="maxTorqValue">Value</label>
+              <input
+                type="number"
+                class="maxTorqValue"
+                id="maxTorqValue"
+              /><br />
+              <label for="maxTorqUnit">Unit</label>
+              <input type="text" class="maxTorqUnit" id="maxTorqUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Bore</th>
+            <td class="multipleInput">
+              <label for="boreValue">Value</label>
+              <input type="number" class="boreValue" id="boreValue" /><br />
+              <label for="boreUnit">Unit</label>
+              <input type="text" class="boreUnit" id="boreUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Stroke</th>
+            <td class="multipleInput">
+              <label for="strokeValue">Value</label>
+              <input type="number" class="strokeValue" id="strokeValue" /><br />
+              <label for="strokeUnit">Unit</label>
+              <input type="text" class="strokeUnit" id="strokeUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Compression Ratio</th>
+            <td><input type="text" class="compR" /></td>
+          </tr>
+          <tr>
+            <th>Valves</th>
+            <td><input type="number" class="valves" /></td>
+          </tr>
+          <tr>
+            <th>Fuel Supply</th>
+            <td><input type="text" class="fSup" /></td>
+          </tr>
+          <tr>
+            <th>No Of Cylinders</th>
+            <td><input type="number" class="nOCyl" /></td>
+          </tr>
+          <tr>
+            <th>Engine Cooling</th>
+            <td><input type="text" class="engCool" /></td>
+          </tr>
+          <tr>
+            <th>Starting Method</th>
+            <td>
+              <div class="flexTd">
+                <div class="startM tagContainer"></div>
+                <input
+                  type="text"
+                  class="startM tagInput"
+                  onkeydown="tagHandler(this,event)"
+                  placeholder="Enter Starting Method Tags"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Transmission</th>
+          </tr>
+          <tr>
+            <th>Transmission Type</th>
+            <td><input type="text" class="tt" /></td>
+          </tr>
+          <tr>
+            <th>No Of Gears</th>
+            <td><input type="number" class="nG" /></td>
+          </tr>
+          <tr>
+            <th>Clutch Type</th>
+            <td>
+              <div class="flexTd">
+                <div class="cT tagContainer"></div>
+                <input
+                  type="text"
+                  class="cT tagInput"
+                  onkeydown="tagHandler(this,event)"
+                  placeholder="Enter Clutch Type Tags"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Drive Type</th>
+            <td><input type="text" class="dT" /></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Mileage & Top Speed</th>
+          </tr>
+          <tr>
+            <th>Mileage</th>
+            <td class="multipleInput">
+              <label for="milValue">Value</label>
+              <input type="number" class="milValue" id="milValue" /><br />
+              <label for="milUnit">Unit</label>
+              <input type="text" class="milUnit" id="milUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Top Speed</th>
+            <td class="multipleInput">
+              <label for="tSpeedValue">Value</label>
+              <input type="number" class="tSpeedValue" id="tSpeedValue" /><br />
+              <label for="tSpeedUnit">Unit</label>
+              <input type="text" class="tSpeedUnit" id="tSpeedUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Chassis & Suspension</th>
+          </tr>
+          <tr>
+            <th>Chassis Type</th>
+            <td><input type="text" class="chT" /></td>
+          </tr>
+          <tr>
+            <th>Front Suspension</th>
+            <td><input type="text" class="fS" /></td>
+          </tr>
+          <tr>
+            <th>Rear Suspension</th>
+            <td><input type="text" class="rS" /></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Brakes</th>
+          </tr>
+          <tr>
+            <th>Front Brake Type</th>
+            <td><input type="text" class="frBT" /></td>
+          </tr>
+          <tr>
+            <th>Rear Brake Type</th>
+            <td><input type="text" class="rrBT" /></td>
+          </tr>
+          <tr>
+            <th>Braking System</th>
+            <td><input type="text" class="brSys" /></td>
+          </tr>
+          <tr>
+            <th>ABS</th>
+            <td><input type="text" class="abs" /></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Wheels & Tires</th>
+          </tr>
+          <tr>
+            <th>Front Tire Size</th>
+            <td class="multipleInput">
+              <label for="frTireSizeValue">Value</label>
+              <input
+                type="number"
+                class="frTireSizeValue"
+                id="frTireSizeValue"
+              /><br />
+              <label for="frTireSizeUnit">Unit</label>
+              <input type="text" class="frTireSizeUnit" id="frTireSizeUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Rear Tire Size</th>
+            <td class="multipleInput">
+              <label for="rrTireSizeValue">Value</label>
+              <input
+                type="number"
+                class="rrTireSizeValue"
+                id="rrTireSizeValue"
+              /><br />
+              <label for="rrTireSizeUnit">Unit</label>
+              <input type="text" class="rrTireSizeUnit" id="rrTireSizeUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Tire Type</th>
+            <td><input type="text" class="tireType" /></td>
+          </tr>
+          <tr>
+            <th>Wheel Type</th>
+            <td><input type="text" class="wt" /></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Dimensions</th>
+          </tr>
+          <tr>
+            <th>Overall Length</th>
+            <td class="multipleInput">
+              <label for="ovAllLengthValue">Value</label>
+              <input
+                type="number"
+                class="ovAllLengthValue"
+                id="ovAllLengthValue"
+              /><br />
+              <label for="ovAllLengthUnit">Unit</label>
+              <input type="text" class="ovAllLengthUnit" id="ovAllLengthUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Overall Width</th>
+            <td class="multipleInput">
+              <label for="ovAllWidthValue">Value</label>
+              <input
+                type="number"
+                class="ovAllWidthValue"
+                id="ovAllWidthValue"
+              /><br />
+              <label for="ovAllWidthUnit">Unit</label>
+              <input type="text" class="ovAllWidthUnit" id="ovAllWidthUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Height</th>
+            <td class="multipleInput">
+              <label for="heightValue">Value</label>
+              <input type="number" class="heightValue" id="heightValue" /><br />
+              <label for="heightUnit">Unit</label>
+              <input type="text" class="heightUnit" id="heightUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Ground Clearance</th>
+            <td class="multipleInput">
+              <label for="groundClearValue">Value</label>
+              <input
+                type="number"
+                class="groundClearValue"
+                id="groundClearValue"
+              /><br />
+              <label for="groundClearUnit">Unit</label>
+              <input type="text" class="groundClearUnit" id="groundClearUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Weight</th>
+            <td class="multipleInput">
+              <label for="weightValue">Value</label>
+              <input type="number" class="weightValue" id="weightValue" /><br />
+              <label for="weightUnit">Unit</label>
+              <input type="text" class="weightUnit" id="weightUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Fuel Tank Capacity</th>
+            <td class="multipleInput">
+              <label for="fuelTankCapValue">Value</label>
+              <input
+                type="number"
+                class="fuelTankCapValue"
+                id="fuelTankCapValue"
+              /><br />
+              <label for="fuelTankCapUnit">Unit</label>
+              <input type="text" class="fuelTankCapUnit" id="fuelTankCapUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Wheelbase</th>
+            <td class="multipleInput">
+              <label for="wheelBaseValue">Value</label>
+              <input
+                type="number"
+                class="wheelBaseValue"
+                id="wheelBaseValue"
+              /><br />
+              <label for="wheelBaseUnit">Unit</label>
+              <input type="text" class="wheelBaseUnit" id="wheelBaseUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th>Seat Height</th>
+            <td class="multipleInput">
+              <label for="seatHeightValue">Value</label>
+              <input
+                type="number"
+                class="seatHeightValue"
+                id="seatHeightValue"
+              /><br />
+              <label for="seatHeightUnit">Unit</label>
+              <input type="text" class="seatHeightUnit" id="seatHeightUnit" />
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Electricals</th>
+          </tr>
+          <tr>
+            <th>Battery Voltage</th>
+            <td><input type="text" class="batV" /></td>
+          </tr>
+          <tr>
+            <th>Head Light</th>
+            <td><input type="text" class="headL" /></td>
+          </tr>
+          <tr>
+            <th>Tail Light</th>
+            <td><input type="text" class="tailL" /></td>
+          </tr>
+          <tr>
+            <th>Indicators</th>
+            <td><input type="text" class="ind" /></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">Features</th>
+          </tr>
+          <tr>
+            <th>Speedometer</th>
+            <td><input type="text" class="speedMet" /></td>
+          </tr>
+          <tr>
+            <th>Odometer</th>
+            <td><input type="text" class="odoMet" /></td>
+          </tr>
+          <tr>
+            <th>RPM Meter</th>
+            <td><input type="text" class="rpmMet" /></td>
+          </tr>
+          <tr>
+            <th>Handle Type</th>
+            <td><input type="text" class="handType" /></td>
+          </tr>
+          <tr>
+            <th>Seat Type</th>
+            <td><input type="text" class="seatTyp" /></td>
+          </tr>
+          <tr>
+            <th>Passenger Grab Rail</th>
+            <td><input type="text" class="passGRail" /></td>
+          </tr>
+          <tr>
+            <th>Engine Kill Switch</th>
+            <td><input type="text" class="engKS" /></td>
+          </tr>
+          <tr>
+            <th colspan="2" align="center">
+              Images
+              <input
+                type="file"
+                class="bikeImage"
+                accept="image/*"
+                multiple
+                onchange="handleImages(event)"
+              />
+            </th>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <div class="imagesViewArea"></div>
+            </td>
+          </tr>
+          <tr class="lastTr">
+            <th colspan="2" align="center">
+              Additional Feature
+              <input
+                type="checkbox"
+                class="addFeat"
+                onchange="addAdditionalFeature(this,event)"
+              />
+            </th>
+          </tr>
+        </table>
+      </div>
+      <div class="submitArea">
+        <div class="save btn" data-user="<%= user %>" onclick="saveData()">
+          Save
+        </div>
+        <div class="upload btn" data-user="<%= user %>">Upload</div>
+      </div>
+    </div>
+  </body>
+</html>

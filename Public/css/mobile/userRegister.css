@@ -1,0 +1,70 @@
+/* overlay animation stopped */
+.overlay {
+  display: none;
+}
+.mainContent {
+  height: 75vh;
+  width: 95wh;
+  overflow: scroll;
+  margin: 0 auto;
+}
+/* ad container */
+.adArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ad {
+  height: 220px;
+  width: 350px;
+  background-image: url("https://picsum.photos/350/200");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* Registration styling */
+
+/* Registration Area */
+.userImageArea {
+  height: 7rem;
+  width: 8rem;
+  margin: 0 auto 1rem 1rem;
+  background-image: url("/Photos/blankProfile/blankProfile.jpg");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 1px solid var(--dark-purple);
+}
+.registerPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.registrationArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+table {
+  margin-bottom: 2rem;
+}
+th {
+  padding: 0 0.5rem;
+  white-space: nowrap;
+}
+input {
+  width: 99%;
+  padding: 1rem 0.1rem;
+  font-size: 1.2rem;
+}
+.subBtn {
+  width: 99%;
+  font-size: 2rem;
+  margin: 0.2rem 0.1rem;
+}

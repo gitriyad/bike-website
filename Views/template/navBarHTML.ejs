@@ -1,0 +1,49 @@
+<section class="navbarArea">
+  <div class="navbar">
+    <div class="logoArea">
+      <div class="logo"></div>
+      <div class="slogan">Fuel the Freedom, Ignite the Ride!</div>
+    </div>
+    <div class="account">
+      <div class="text">
+        <div class="accText">Account</div>
+        <div class="accIcon">
+          <i class="fa-solid fa-sort-down accFaIcon"></i>
+        </div>
+      </div>
+      <div class="accOption">
+        <%if(isLoggedIn){%>
+        <div
+          class="Dashboard btn navDes"
+          onclick="window.location.href='/dashboard/<%= admin %>'"
+        >
+          Dashboard
+        </div>
+        <div
+          class="updateProfile btn navDes"
+          onclick="window.location.href='/updateProfile'"
+          data-user="<%= user %>"
+        >
+          Update Profile
+        </div>
+        <%}else{%>
+        <div class="login btn navDes" onclick="window.location.href='/login'">
+          Log In
+        </div>
+        <div
+          class="register btn navDes"
+          onclick="window.location.href='/register'"
+        >
+          Sign Up
+        </div>
+        <%}%>
+      </div>
+    </div>
+    <div class="bar">
+      <div class="filterIcon">
+        <i class="fa-solid fa-filter"></i>
+      </div>
+      <div class="filterOption"></div>
+    </div>
+  </div>
+</section>
