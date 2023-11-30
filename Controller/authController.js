@@ -120,8 +120,8 @@ exports.postLogin = (req, res, next) => {
         throw new Error("Password or Email Is not Correct");
       } else {
         let riderToken = crypto.randomBytes(32).toString("hex");
-        let maxAge = 15 * 365 * 24 * 60 * 60;
-        cookies.set("RT", riderToken, { maxAge: maxAge, httpOnly: false });
+        let maxAge = 365 * 24 * 60 * 60;
+        cookies.set("RT", riderToken, { maxAge: maxAge, httpOnly: true });
         user.token = riderToken;
         return user.save().then((savedUser) => {
           return savedUser;

@@ -8,7 +8,9 @@
   </head>
   <body>
     <div class="mainContainer">
-      <div class="headline">Add Bike</div>
+      <div class="headline">
+        <%= edit?`Update Bike: ${bike.bikeName}`:'Add Bike'%>
+      </div>
       <div class="bikeInfo">
         <table class="addBikeTable" border="1" cellspacing="0">
           <tr>
@@ -16,53 +18,116 @@
           </tr>
           <tr>
             <th>Bike Name</th>
-            <td><input type="text" class="bikeName" /></td>
+            <td>
+              <input
+                type="text"
+                class="bikeName"
+                value="<%= edit?bike.bikeName:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Brand</th>
-            <td><input type="text" class="brand" /></td>
+            <td>
+              <input
+                type="text"
+                class="brand"
+                value="<%= edit?bike.brand:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>CC</th>
-            <td><input type="number" class="cc" /></td>
+            <td>
+              <input type="number" class="cc" value="<%= edit?bike.cc:''%>" />
+            </td>
           </tr>
           <tr>
             <th>Regular Price</th>
-            <td><input type="number" class="regPrice" /></td>
+            <td>
+              <input
+                type="number"
+                class="regPrice"
+                value="<%= edit?bike.regPrice:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Offer Price</th>
-            <td><input type="number" class="offPrice" /></td>
+            <td>
+              <input
+                type="number"
+                class="offPrice"
+                value="<%= edit?bike.offPrice:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Bike Type</th>
-            <td><input type="text" class="bikeType" /></td>
+            <td>
+              <input
+                type="text"
+                class="bikeType"
+                value="<%= edit?bike.bikeType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Distributor</th>
-            <td><input type="text" class="dist" /></td>
+            <td>
+              <input
+                type="text"
+                class="dist"
+                value="<%= edit?bike.distributor:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Model Year</th>
-            <td><input type="number" class="modYear" /></td>
+            <td>
+              <input
+                type="number"
+                class="modYear"
+                value="<%= edit?bike.modelYear:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Brand Origin</th>
-            <td><input type="text" class="brandOrigin" /></td>
+            <td>
+              <input
+                type="text"
+                class="brandOrigin"
+                value="<%= edit?bike.brandOrigin:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Assemble In</th>
-            <td><input type="text" class="assIn" /></td>
+            <td>
+              <input
+                type="text"
+                class="assIn"
+                value="<%= edit?bike.assembledIn:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Available Colours</th>
             <td>
               <div class="flexTd">
-                <div class="avColorsDiv tagContainer"></div>
+                <div class="avColorsDiv tagContainer">
+                  <% if(edit){ bike.availableColorsArr.forEach( color => { %>
+                  <div class="tag">
+                    <%= color%>
+                    <span class="removeTag" onclick="removeTag(this)">X</span>
+                  </div>
+                  <% });} %>
+                </div>
                 <input
                   type="text"
                   class="avColors tagInput"
-                  onkeydown="tagHandler(this,event)"
+                  onkeydown="tagHandler(this,event,'<%= edit? `${Boolean(edit)}`:`${Boolean(false)}` %>')"
                   placeholder="Enter Colour Tags"
                 />
               </div>
@@ -75,11 +140,18 @@
             <th>Engine Type</th>
             <td>
               <div class="flexTd">
-                <div class="engineType tagContainer"></div>
+                <div class="engineType tagContainer">
+                  <% if(edit){ bike.engineTypeArr.forEach( color => { %>
+                  <div class="tag">
+                    <%= color%>
+                    <span class="removeTag" onclick="removeTag(this)">X</span>
+                  </div>
+                  <% });} %>
+                </div>
                 <input
                   type="text"
                   class="engineType tagInput"
-                  onkeydown="tagHandler(this,event)"
+                  onkeydown="tagHandler(this,event,'<%= edit? `${Boolean(edit)}`:`${Boolean(false)}` %>')"
                   placeholder="Enter Engine Type Tags"
                 />
               </div>
@@ -87,15 +159,31 @@
           </tr>
           <tr>
             <th>Displacement</th>
-            <td><input type="text" class="disp" /></td>
+            <td>
+              <input
+                type="text"
+                class="disp"
+                value="<%= edit?bike.disPlacement:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Maximum Power</th>
             <td class="multipleInput">
               <label for="maxPowValue">Value</label>
-              <input type="number" class="maxPowValue" id="maxPowValue" /><br />
+              <input
+                type="number"
+                class="maxPowValue"
+                id="maxPowValue"
+                value="<%= edit?bike.maxPowerValue:''%>"
+              /><br />
               <label for="maxPowUnit">Unit</label>
-              <input type="text" class="maxPowUnit" id="maxPowUnit" />
+              <input
+                type="text"
+                class="maxPowUnit"
+                id="maxPowUnit"
+                value="<%= edit?bike.maxPowerUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -106,58 +194,121 @@
                 type="number"
                 class="maxTorqValue"
                 id="maxTorqValue"
+                value="<%= edit?bike.maxTorqueValue:''%>"
               /><br />
               <label for="maxTorqUnit">Unit</label>
-              <input type="text" class="maxTorqUnit" id="maxTorqUnit" />
+              <input
+                type="text"
+                class="maxTorqUnit"
+                id="maxTorqUnit"
+                value="<%= edit?bike.maxTorqueUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Bore</th>
             <td class="multipleInput">
               <label for="boreValue">Value</label>
-              <input type="number" class="boreValue" id="boreValue" /><br />
+              <input
+                type="number"
+                class="boreValue"
+                id="boreValue"
+                value="<%= edit?bike.boreValue:''%>"
+              /><br />
               <label for="boreUnit">Unit</label>
-              <input type="text" class="boreUnit" id="boreUnit" />
+              <input
+                type="text"
+                class="boreUnit"
+                id="boreUnit"
+                value="<%= edit?bike.boreUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Stroke</th>
             <td class="multipleInput">
               <label for="strokeValue">Value</label>
-              <input type="number" class="strokeValue" id="strokeValue" /><br />
+              <input
+                type="number"
+                class="strokeValue"
+                id="strokeValue"
+                value="<%= edit?bike.strokeValue:''%>"
+              /><br />
               <label for="strokeUnit">Unit</label>
-              <input type="text" class="strokeUnit" id="strokeUnit" />
+              <input
+                type="text"
+                class="strokeUnit"
+                id="strokeUnit"
+                value="<%= edit?bike.strokeUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Compression Ratio</th>
-            <td><input type="text" class="compR" /></td>
+            <td>
+              <input
+                type="text"
+                class="compR"
+                value="<%= edit?bike.compressRation:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Valves</th>
-            <td><input type="number" class="valves" /></td>
+            <td>
+              <input
+                type="number"
+                class="valves"
+                value="<%= edit?bike.valves:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Fuel Supply</th>
-            <td><input type="text" class="fSup" /></td>
+            <td>
+              <input
+                type="text"
+                class="fSup"
+                value="<%= edit?bike.fuelSupply:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>No Of Cylinders</th>
-            <td><input type="number" class="nOCyl" /></td>
+            <td>
+              <input
+                type="number"
+                class="nOCyl"
+                value="<%= edit?bike.noOfCylender:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Engine Cooling</th>
-            <td><input type="text" class="engCool" /></td>
+            <td>
+              <input
+                type="text"
+                class="engCool"
+                value="<%= edit?bike.engineCool:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Starting Method</th>
             <td>
               <div class="flexTd">
-                <div class="startM tagContainer"></div>
+                <div class="startM tagContainer">
+                  <% if(edit){ bike.startMethodArr.forEach( method => { %>
+                  <div class="tag">
+                    <%= method%>
+                    <span class="removeTag" onclick="removeTag(this)">X</span>
+                  </div>
+                  <% });} %>
+                </div>
                 <input
                   type="text"
                   class="startM tagInput"
-                  onkeydown="tagHandler(this,event)"
+                  onkeydown="tagHandler(this,event,'<%= edit? `${Boolean(edit)}`:`${Boolean(false)}` %>')"
                   placeholder="Enter Starting Method Tags"
                 />
               </div>
@@ -168,21 +319,40 @@
           </tr>
           <tr>
             <th>Transmission Type</th>
-            <td><input type="text" class="tt" /></td>
+            <td>
+              <input
+                type="text"
+                class="tt"
+                value="<%= edit?bike.transmissionType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>No Of Gears</th>
-            <td><input type="number" class="nG" /></td>
+            <td>
+              <input
+                type="number"
+                class="nG"
+                value="<%= edit?bike.noOfGear:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Clutch Type</th>
             <td>
               <div class="flexTd">
-                <div class="cT tagContainer"></div>
+                <div class="cT tagContainer">
+                  <% if(edit){ bike.clutchTypeArr.forEach( type => { %>
+                  <div class="tag">
+                    <%= type%>
+                    <span class="removeTag" onclick="removeTag(this)">X</span>
+                  </div>
+                  <% });} %>
+                </div>
                 <input
                   type="text"
                   class="cT tagInput"
-                  onkeydown="tagHandler(this,event)"
+                  onkeydown="tagHandler(this,event,'<%= edit? `${Boolean(edit)}`:`${Boolean(false)}` %>')"
                   placeholder="Enter Clutch Type Tags"
                 />
               </div>
@@ -190,7 +360,13 @@
           </tr>
           <tr>
             <th>Drive Type</th>
-            <td><input type="text" class="dT" /></td>
+            <td>
+              <input
+                type="text"
+                class="dT"
+                value="<%= edit?bike.driveType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th colspan="2" align="center">Mileage & Top Speed</th>
@@ -199,18 +375,38 @@
             <th>Mileage</th>
             <td class="multipleInput">
               <label for="milValue">Value</label>
-              <input type="number" class="milValue" id="milValue" /><br />
+              <input
+                type="number"
+                class="milValue"
+                id="milValue"
+                value="<%= edit?bike.mileageValue:''%>"
+              /><br />
               <label for="milUnit">Unit</label>
-              <input type="text" class="milUnit" id="milUnit" />
+              <input
+                type="text"
+                class="milUnit"
+                id="milUnit"
+                value="<%= edit?bike.mileageUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Top Speed</th>
             <td class="multipleInput">
               <label for="tSpeedValue">Value</label>
-              <input type="number" class="tSpeedValue" id="tSpeedValue" /><br />
+              <input
+                type="number"
+                class="tSpeedValue"
+                id="tSpeedValue"
+                value="<%= edit?bike.topSpeedValue:''%>"
+              /><br />
               <label for="tSpeedUnit">Unit</label>
-              <input type="text" class="tSpeedUnit" id="tSpeedUnit" />
+              <input
+                type="text"
+                class="tSpeedUnit"
+                id="tSpeedUnit"
+                value="<%= edit?bike.topSpeedUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -218,34 +414,72 @@
           </tr>
           <tr>
             <th>Chassis Type</th>
-            <td><input type="text" class="chT" /></td>
+            <td>
+              <input
+                type="text"
+                class="chT"
+                value="<%= edit?bike.chassisType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Front Suspension</th>
-            <td><input type="text" class="fS" /></td>
+            <td>
+              <input
+                type="text"
+                class="fS"
+                value="<%= edit?bike.frontSuspension:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Rear Suspension</th>
-            <td><input type="text" class="rS" /></td>
+            <td>
+              <input
+                type="text"
+                class="rS"
+                value="<%= edit?bike.rearSuspension:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th colspan="2" align="center">Brakes</th>
           </tr>
           <tr>
             <th>Front Brake Type</th>
-            <td><input type="text" class="frBT" /></td>
+            <td>
+              <input
+                type="text"
+                class="frBT"
+                value="<%= edit?bike.frontBrake:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Rear Brake Type</th>
-            <td><input type="text" class="rrBT" /></td>
+            <td>
+              <input
+                type="text"
+                class="rrBT"
+                value="<%= edit?bike.rearBrake:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Braking System</th>
-            <td><input type="text" class="brSys" /></td>
+            <td>
+              <input
+                type="text"
+                class="brSys"
+                value="<%= edit?bike.breakingSystem:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>ABS</th>
-            <td><input type="text" class="abs" /></td>
+            <td>
+              <input type="text" class="abs" value="<%= edit?bike.abs:''%>" />
+            </td>
           </tr>
           <tr>
             <th colspan="2" align="center">Wheels & Tires</th>
@@ -258,9 +492,15 @@
                 type="number"
                 class="frTireSizeValue"
                 id="frTireSizeValue"
+                value="<%= edit?bike.frontTireSizeValue:''%>"
               /><br />
               <label for="frTireSizeUnit">Unit</label>
-              <input type="text" class="frTireSizeUnit" id="frTireSizeUnit" />
+              <input
+                type="text"
+                class="frTireSizeUnit"
+                id="frTireSizeUnit"
+                value="<%= edit?bike.frontTireSizeUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -271,18 +511,36 @@
                 type="number"
                 class="rrTireSizeValue"
                 id="rrTireSizeValue"
+                value="<%= edit?bike.rearTireSizeValue:''%>"
               /><br />
               <label for="rrTireSizeUnit">Unit</label>
-              <input type="text" class="rrTireSizeUnit" id="rrTireSizeUnit" />
+              <input
+                type="text"
+                class="rrTireSizeUnit"
+                id="rrTireSizeUnit"
+                value="<%= edit?bike.rearTireSizeUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Tire Type</th>
-            <td><input type="text" class="tireType" /></td>
+            <td>
+              <input
+                type="text"
+                class="tireType"
+                value="<%= edit?bike.tireType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Wheel Type</th>
-            <td><input type="text" class="wt" /></td>
+            <td>
+              <input
+                type="text"
+                class="wt"
+                value="<%= edit?bike.wheelType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th colspan="2" align="center">Dimensions</th>
@@ -295,9 +553,15 @@
                 type="number"
                 class="ovAllLengthValue"
                 id="ovAllLengthValue"
+                value="<%= edit?bike.overallLengthValue:''%>"
               /><br />
               <label for="ovAllLengthUnit">Unit</label>
-              <input type="text" class="ovAllLengthUnit" id="ovAllLengthUnit" />
+              <input
+                type="text"
+                class="ovAllLengthUnit"
+                id="ovAllLengthUnit"
+                value="<%= edit?bike.overallLengthUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -308,18 +572,34 @@
                 type="number"
                 class="ovAllWidthValue"
                 id="ovAllWidthValue"
+                value="<%= edit?bike.overallWidthValue:''%>"
               /><br />
               <label for="ovAllWidthUnit">Unit</label>
-              <input type="text" class="ovAllWidthUnit" id="ovAllWidthUnit" />
+              <input
+                type="text"
+                class="ovAllWidthUnit"
+                id="ovAllWidthUnit"
+                value="<%= edit?bike.overallWidthUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Height</th>
             <td class="multipleInput">
               <label for="heightValue">Value</label>
-              <input type="number" class="heightValue" id="heightValue" /><br />
+              <input
+                type="number"
+                class="heightValue"
+                id="heightValue"
+                value="<%= edit?bike.heightValue:''%>"
+              /><br />
               <label for="heightUnit">Unit</label>
-              <input type="text" class="heightUnit" id="heightUnit" />
+              <input
+                type="text"
+                class="heightUnit"
+                id="heightUnit"
+                value="<%= edit?bike.heightUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -330,18 +610,34 @@
                 type="number"
                 class="groundClearValue"
                 id="groundClearValue"
+                value="<%= edit?bike.groundClearanceValue:''%>"
               /><br />
               <label for="groundClearUnit">Unit</label>
-              <input type="text" class="groundClearUnit" id="groundClearUnit" />
+              <input
+                type="text"
+                class="groundClearUnit"
+                id="groundClearUnit"
+                value="<%= edit?bike.groundClearanceUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
             <th>Weight</th>
             <td class="multipleInput">
               <label for="weightValue">Value</label>
-              <input type="number" class="weightValue" id="weightValue" /><br />
+              <input
+                type="number"
+                class="weightValue"
+                id="weightValue"
+                value="<%= edit?bike.weightValue:''%>"
+              /><br />
               <label for="weightUnit">Unit</label>
-              <input type="text" class="weightUnit" id="weightUnit" />
+              <input
+                type="text"
+                class="weightUnit"
+                id="weightUnit"
+                value="<%= edit?bike.weightUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -352,9 +648,15 @@
                 type="number"
                 class="fuelTankCapValue"
                 id="fuelTankCapValue"
+                value="<%= edit?bike.fuleTankCapacityValue:''%>"
               /><br />
               <label for="fuelTankCapUnit">Unit</label>
-              <input type="text" class="fuelTankCapUnit" id="fuelTankCapUnit" />
+              <input
+                type="text"
+                class="fuelTankCapUnit"
+                id="fuelTankCapUnit"
+                value="<%= edit?bike.fuleTankCapacityUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -365,9 +667,15 @@
                 type="number"
                 class="wheelBaseValue"
                 id="wheelBaseValue"
+                value="<%= edit?bike.wheelBaseValue:''%>"
               /><br />
               <label for="wheelBaseUnit">Unit</label>
-              <input type="text" class="wheelBaseUnit" id="wheelBaseUnit" />
+              <input
+                type="text"
+                class="wheelBaseUnit"
+                id="wheelBaseUnit"
+                value="<%= edit?bike.wheelBaseUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -378,9 +686,15 @@
                 type="number"
                 class="seatHeightValue"
                 id="seatHeightValue"
+                value="<%= edit?bike.seatHeightValue:''%>"
               /><br />
               <label for="seatHeightUnit">Unit</label>
-              <input type="text" class="seatHeightUnit" id="seatHeightUnit" />
+              <input
+                type="text"
+                class="seatHeightUnit"
+                id="seatHeightUnit"
+                value="<%= edit?bike.seatHeightUnit:''%>"
+              />
             </td>
           </tr>
           <tr>
@@ -388,50 +702,116 @@
           </tr>
           <tr>
             <th>Battery Voltage</th>
-            <td><input type="text" class="batV" /></td>
+            <td>
+              <input
+                type="text"
+                class="batV"
+                value="<%= edit?bike.batVoltage:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Head Light</th>
-            <td><input type="text" class="headL" /></td>
+            <td>
+              <input
+                type="text"
+                class="headL"
+                value="<%= edit?bike.headLight:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Tail Light</th>
-            <td><input type="text" class="tailL" /></td>
+            <td>
+              <input
+                type="text"
+                class="tailL"
+                value="<%= edit?bike.tailLight:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Indicators</th>
-            <td><input type="text" class="ind" /></td>
+            <td>
+              <input
+                type="text"
+                class="ind"
+                value="<%= edit?bike.indicator:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th colspan="2" align="center">Features</th>
           </tr>
           <tr>
             <th>Speedometer</th>
-            <td><input type="text" class="speedMet" /></td>
+            <td>
+              <input
+                type="text"
+                class="speedMet"
+                value="<%= edit?bike.speedoMeter:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Odometer</th>
-            <td><input type="text" class="odoMet" /></td>
+            <td>
+              <input
+                type="text"
+                class="odoMet"
+                value="<%= edit?bike.odoMeter:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>RPM Meter</th>
-            <td><input type="text" class="rpmMet" /></td>
+            <td>
+              <input
+                type="text"
+                class="rpmMet"
+                value="<%= edit?bike.rpmMeter:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Handle Type</th>
-            <td><input type="text" class="handType" /></td>
+            <td>
+              <input
+                type="text"
+                class="handType"
+                value="<%= edit?bike.handleType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Seat Type</th>
-            <td><input type="text" class="seatTyp" /></td>
+            <td>
+              <input
+                type="text"
+                class="seatTyp"
+                value="<%= edit?bike.seatType:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Passenger Grab Rail</th>
-            <td><input type="text" class="passGRail" /></td>
+            <td>
+              <input
+                type="text"
+                class="passGRail"
+                value="<%= edit?bike.passengerGrabRail:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th>Engine Kill Switch</th>
-            <td><input type="text" class="engKS" /></td>
+            <td>
+              <input
+                type="text"
+                class="engKS"
+                value="<%= edit?bike.engineKillSwitch:''%>"
+              />
+            </td>
           </tr>
           <tr>
             <th colspan="2" align="center">
@@ -441,13 +821,28 @@
                 class="bikeImage"
                 accept="image/*"
                 multiple
-                onchange="handleImages(event)"
+                onchange="handleImages(event,true)"
               />
             </th>
           </tr>
           <tr>
             <td colspan="2" align="center">
-              <div class="imagesViewArea"></div>
+              <div class="imagesViewArea">
+                <% if(edit){bike.imageArr.forEach(image=>{ %>
+                <div
+                  class="bikeImg"
+                  style="
+                    background-image: url('/upload/brand/<%= bike.brand %>/<%= bike.bikeName %>/images/<%= image %>');
+                  "
+                >
+                  <span
+                    class="removeImage"
+                    onclick="removeImageFromServer(this,'<%= image%>','<%= bike._id%>')"
+                    >X</span
+                  >
+                </div>
+                <%})}%>
+              </div>
             </td>
           </tr>
           <tr class="lastTr">
@@ -457,14 +852,44 @@
                 type="checkbox"
                 class="addFeat"
                 onchange="addAdditionalFeature(this,event)"
+                checked="<%= edit?'checked':'false'%>"
               />
             </th>
           </tr>
+          <% if(edit && bike.additionalFeatureArr.length>0){ %>
+          <tr class="addFeaTr">
+            <th>Additional Features</th>
+            <td>
+              <div class="flexTd">
+                <div class="addFeaDiv tagContainer">
+                  <% if(edit){ bike.additionalFeatureArr.forEach(
+                  (feature,index) => { %>
+                  <div class="tag">
+                    <%= feature%>
+                    <span
+                      class="removeTag"
+                      onclick="removeTagFromServer(this,'<%= index%>','<%= bike._id%>')"
+                      >X</span
+                    >
+                  </div>
+                  <%})};%>
+                </div>
+                <input
+                  type="text"
+                  class="addFeaValue tagInput"
+                  onkeydown="tagHandler(this,event,'<%= edit? `${Boolean(edit)}`:`${Boolean(false)}` %>')"
+                  placeholder="Enter Features Tags"
+                />
+              </div>
+            </td>
+          </tr>
+          <% } %>
         </table>
       </div>
       <div class="submitArea">
-        <div class="save btn" data-user="<%= user %>" onclick="saveData()">
-          Save
+        <div class="save btn" data-user="<%= user %>" <%if(edit){%>
+          onclick="saveData('<%= edit%>','<%= bike._id%>')" <%}else{%>
+          onclick="saveData()" <%}%> > <%= edit?'Update':'Save'%>
         </div>
         <div class="upload btn" data-user="<%= user %>">Upload</div>
       </div>

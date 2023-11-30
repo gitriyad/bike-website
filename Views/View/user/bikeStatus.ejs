@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=status%> Bikes</title>
+    <%-include("../../template/bikeStatusCSSLink.ejs")%>
+  </head>
+  <body>
+    <div class="bikeStatusMainContainer">
+      <div class="headline"><%= status %> Bikes</div>
+      <div class="displayArea">
+        <%bikes.forEach(bike=>{%>
+        <div class="bike">
+          <div
+            class="bikeImage"
+            style="
+              background-image: url('/upload/brand/<%= bike.brand%>/<%= bike.bikeName%>/images/<%= bike.imageArr[0]%>');
+            "
+          >
+            <div class="bikeStatus btn"><%= bike.status %></div>
+          </div>
+
+          <div class="viewBike btn">View</div>
+          <div
+            class="editBike btn"
+            data-url="/editBike/<%= bike._id %>"
+            onclick="fetchReq(this)"
+          >
+            Edit
+          </div>
+        </div>
+        <%});%>
+      </div>
+    </div>
+  </body>
+</html>

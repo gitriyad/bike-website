@@ -1,12 +1,16 @@
 function addBikeJS(container) {}
 
-function tagHandler(input, e) {
+function tagHandler(input, e, edit = false) {
+  edit = edit == "true";
   let tagContainer = input.previousElementSibling;
   if (e.key == "Enter") {
     e.preventDefault();
     let inputValue = input.value;
     let tag = document.createElement("div");
     tag.setAttribute("class", "tag");
+    if (edit) {
+      tag.classList.add("updateTag");
+    }
     tag.innerHTML = `${inputValue}<span class="removeTag" onclick="removeTag(this)">X</span>`;
     tagContainer.appendChild(tag);
     input.value = "";
@@ -14,6 +18,27 @@ function tagHandler(input, e) {
 }
 function removeTag(child) {
   return child.parentNode.remove();
+}
+function removeTagFromServer(childElement, index, bikeId) {
+  let isRemove = confirm("Do You Want to Remove This Tag?");
+  if (isRemove) {
+    fetch(`/removeTagFromServer/${bikeId}/${index}`, {
+      method: "GET",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Couldn't remove");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        alert(data);
+        childElement.parentNode.remove();
+      })
+      .catch((err) => {
+        alert(`Tag Remove Failed: ${err.message}`);
+      });
+  }
 }
 function addAdditionalFeature(checkBox, event) {
   let table = document.querySelector(".addBikeTable>tbody");
@@ -54,9 +79,8 @@ function addAdditionalFeature(checkBox, event) {
   }
 }
 
-function handleImages(event) {
+function handleImages(event, edit = false) {
   let imageContainer = document.querySelector(".imagesViewArea");
-  imageContainer.innerHTML = "";
   let images = [...event.target.files];
   images.forEach((image, index) => {
     let reader = new FileReader();
@@ -68,6 +92,9 @@ function handleImages(event) {
     reader.readAsDataURL(image);
     imgDiv.innerHTML = `<span class="removeImage" onclick="removeImage(this)">X</span>`;
     imgDiv.setAttribute("data-name", image.name);
+    if (!edit) {
+      imageContainer.innerHTML = "";
+    }
     imageContainer.appendChild(imgDiv);
   });
 }
@@ -83,6 +110,30 @@ function removeImage(image) {
   });
   imagesFileInput.files = dataTransfer.files;
   image.parentNode.remove();
+}
+// remove image from server
+function removeImageFromServer(childElement, imageName, bikeId) {
+  let isRemove = confirm("Do you want to delete this image?");
+  if (isRemove) {
+    fetch(`/removeImageFromServer/${imageName}/${bikeId}`, {
+      method: "GET",
+    })
+      .then((respose) => {
+        if (!respose.ok) {
+          throw new Error("Data Not Deleted");
+        }
+        return respose.text();
+      })
+      .then((data) => {
+        alert(data);
+        childElement.parentNode.remove();
+      })
+      .catch((err) => {
+        alert(`error: ${err.message}`);
+      });
+  } else {
+    return;
+  }
 }
 function dataHolderCollect() {
   let user = document.querySelector(".save");
@@ -328,10 +379,11 @@ function dataCollect(obj) {
   return data;
 }
 
-function saveData() {
+function saveData(edit = false, id = false) {
+  edit = edit == "true";
   let dataHolder = dataHolderCollect();
   let data = dataCollect(dataHolder);
-  uploadData("/addBike", data, (err, res) => {
+  uploadData(`/addBike/${edit}/${id}`, data, (err, res) => {
     if (err) {
       alert(`Error in Uploading Data: ${err}`);
     } else {

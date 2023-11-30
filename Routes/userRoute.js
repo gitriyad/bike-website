@@ -11,7 +11,17 @@ let authController = require("../Controller/authController");
 Router.get("/", userController.getUserIndex);
 Router.get("/dashboard/:admin", userController.getDashboard);
 Router.get("/addBike", userController.getAddBike);
-Router.post("/addBike", userController.postAddBike);
+Router.post("/addBike/:edit/:bikeId", userController.postAddBike);
+Router.get("/unpublishedBike", userController.getUnpublishedBike);
+Router.get("/editBike/:bikeId", userController.getEditBike);
+Router.get(
+  "/removeImageFromServer/:imageName/:bikeId",
+  userController.getRemoveImageFromServer
+);
+Router.get(
+  "/removeTagFromServer/:bikeId/:index",
+  userController.getRemoveTagFromServer
+);
 
 //exporting Router
 module.exports = Router;

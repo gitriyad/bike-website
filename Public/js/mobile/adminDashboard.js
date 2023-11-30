@@ -18,7 +18,6 @@ let viewArea = document.querySelector(".viewArea");
         let div = document.createElement("div");
         div.innerHTML = data;
         viewArea.innerHTML = div.innerHTML;
-        addBikeJS(viewArea);
       })
       .catch((err) => {
         viewArea.innerHTML = "";

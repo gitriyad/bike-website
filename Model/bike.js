@@ -152,6 +152,10 @@ let bikeSchema = new Schema({
     type: String,
     default: "N/A",
   },
+  breakingSystem: {
+    type: String,
+    default: "N/A",
+  },
   abs: {
     type: String,
     default: "N/A",

@@ -1,0 +1,43 @@
+.displayArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90vw;
+}
+.bike {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3b076b;
+  color: white;
+  font-weight: bolder;
+  padding: 1rem 0.5rem;
+  flex-shrink: 0;
+  width: 90vw;
+  margin: 1rem 0;
+}
+.bikeImage {
+  height: 5rem;
+  width: 7rem;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+.bikeStatus {
+  font-size: 0.9rem;
+  padding: 0;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  cursor: normal;
+}
+
+.viewBike,
+.editBike {
+  padding: 0.5rem 1rem;
+}
