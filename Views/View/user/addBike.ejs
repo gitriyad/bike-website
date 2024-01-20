@@ -847,13 +847,21 @@
           </tr>
           <tr class="lastTr">
             <th colspan="2" align="center">
-              Additional Feature
+              Additional Feature <%if(edit &&
+              bike.additionalFeatureArr.length>0){%>
               <input
                 type="checkbox"
                 class="addFeat"
                 onchange="addAdditionalFeature(this,event)"
-                checked="<%= edit?'checked':'false'%>"
+                checked="checked"
               />
+              <%}else{%>
+              <input
+                type="checkbox"
+                class="addFeat"
+                onchange="addAdditionalFeature(this,event)"
+              />
+              <%}%>
             </th>
           </tr>
           <% if(edit && bike.additionalFeatureArr.length>0){ %>
