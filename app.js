@@ -29,6 +29,10 @@ let adminRoute = require("./Routes/adminRoute");
 let middleware = require("./middleware/middleware");
 
 //global execution
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src *");
+  next();
+});
 
 app.set("view engine", "ejs");
 app.set("views", path.join(rootDir, "Views", "View"));
