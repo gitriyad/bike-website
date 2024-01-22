@@ -9,9 +9,11 @@ exports.setHeaders = (req, res, next) => {
   let url = req.url;
   if (url.endsWith(".js")) {
     res.setHeader("Content-Type", "text/javascript");
+    console.log("url", url);
   } else if (url.endsWith(".css")) {
     res.setHeader("Content-Type", "text/css");
   }
+  console.log("url", url);
   next();
 };
 

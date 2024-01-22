@@ -27,13 +27,29 @@ let adminRoute = require("./Routes/adminRoute");
 
 // Importing Middleware
 let middleware = require("./middleware/middleware");
-app.use(middleware.setHeaders);
+
 //global execution
+
 app.set("view engine", "ejs");
 app.set("views", path.join(rootDir, "Views", "View"));
-app.use(express.static(path.join(rootDir, "public")));
+app.use(
+  express.static(path.join(rootDir, "public"), {
+    setHeaders: (res, path, stat) => {
+      console.log("p", path);
+      let fileExtension = path.split(".").pop();
+      // Set Content-Type based on the file extension
+      if (fileExtension == "js") {
+        console.log("j", path);
+        res.setHeader("Content-Type", "text/javascript");
+      } else if (fileExtension == "css") {
+        res.setHeader("Content-Type", "text/css");
+      }
+    },
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   session({
     secret: envVariable.secretKey,
@@ -43,7 +59,7 @@ app.use(
   })
 );
 //Rendering middlewares
-
+// app.use(middleware.setHeaders);
 app.use(middleware.getUser(app));
 app.use(middleware.setLocalsVariable(app));
 //Rendering Routes
