@@ -27,7 +27,7 @@ let adminRoute = require("./Routes/adminRoute");
 
 // Importing Middleware
 let middleware = require("./middleware/middleware");
-
+app.use(middleware.setHeaders);
 //global execution
 app.set("view engine", "ejs");
 app.set("views", path.join(rootDir, "Views", "View"));
@@ -43,6 +43,7 @@ app.use(
   })
 );
 //Rendering middlewares
+
 app.use(middleware.getUser(app));
 app.use(middleware.setLocalsVariable(app));
 //Rendering Routes

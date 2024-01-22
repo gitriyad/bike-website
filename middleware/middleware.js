@@ -5,6 +5,15 @@ let Cookies = require("cookies");
 let User = require("../Model/user");
 
 // Middlewares
+exports.setHeaders = (req, res, next) => {
+  let url = req.url;
+  if (url.endsWith(".js")) {
+    res.setHeader("Content-Type", "text/javascript");
+  } else if (url.endsWith(".css")) {
+    res.setHeader("Content-Type", "text/css");
+  }
+  next();
+};
 
 exports.getUser = (app) => (req, res, next) => {
   let netInterface = os.networkInterfaces();
