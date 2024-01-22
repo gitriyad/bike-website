@@ -9,6 +9,7 @@ let Bike = require("../Model/bike");
 let Filter = require("../Model/filter");
 // Controller Handller
 exports.getUserIndex = (req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
   res.render("user/index");
 };
 exports.getDashboard = (req, res, next) => {
