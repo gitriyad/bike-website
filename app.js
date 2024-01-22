@@ -44,12 +44,13 @@ app.use(
       } else if (fileExtension == "css") {
         res.setHeader("Content-Type", "text/css");
       }
+      res.setHeader("Cache-Control", "no-cache");
+      res.setHeader("Cache-Control", "no-store");
     },
   })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(
   session({
     secret: envVariable.secretKey,
