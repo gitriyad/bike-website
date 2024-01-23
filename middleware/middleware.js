@@ -21,6 +21,7 @@ exports.getUser = (app) => (req, res, next) => {
   let netInterface = os.networkInterfaces();
   let mac = "";
   Object.keys(netInterface).forEach((interface) => {
+    console.log("interface", interface);
     if (interface == "Wi-Fi") {
       let deviceNetDetails = netInterface[interface];
       mac = deviceNetDetails[0].mac;
