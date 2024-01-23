@@ -133,7 +133,10 @@ exports.postLogin = (req, res, next) => {
       req.user = user;
       req.session.user = user;
       req.session.isLoggedIn = true;
-      res.send("success");
+      return "success";
+    })
+    .then((response) => {
+      res.send(response);
     })
     .catch((er) => {
       console.log("er", er);

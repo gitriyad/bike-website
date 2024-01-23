@@ -32,22 +32,6 @@ let middleware = require("./middleware/middleware");
 // ...
 
 // Custom middleware to set Content-Type for JavaScript files
-app.use((req, res, next) => {
-  const filePath = req.url;
-  const fileExtension = path.extname(filePath);
-
-  if (fileExtension === ".js") {
-    res.type("text/javascript");
-  } else if (fileExtension === ".css") {
-    res.type("text/css");
-  }
-
-  res.setHeader("Cache-Control", "no-cache");
-  res.setHeader("Cache-Control", "no-store");
-
-  next();
-});
-
 app.set("view engine", "ejs");
 app.set("views", path.join(rootDir, "Views", "View"));
 app.use(
@@ -57,7 +41,6 @@ app.use(
       let fileExtension = path.split(".").pop();
       // Set Content-Type based on the file extension
       if (fileExtension == "js") {
-        console.log("j", path);
         res.setHeader("Content-Type", "text/javascript");
       } else if (fileExtension == "css") {
         res.setHeader("Content-Type", "text/css");
