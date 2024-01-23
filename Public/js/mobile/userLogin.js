@@ -27,10 +27,13 @@ subBtn.addEventListener("click", (e) => {
         }
       })
       .then((data) => {
-        if (data == "success") {
-          window.location.href = "/";
-        } else {
-          notification.innerText = data;
+        // if (data == "success") {
+        //   window.location.href = "/";
+        // } else {
+        //   notification.innerText = data;
+        // }
+        if (!data) {
+          throw new Error("Data Not Fetched");
         }
       })
       .catch((err) => {
