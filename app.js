@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 app.set("view engine", "ejs");
 app.set("views", path.join(rootDir, "Views", "View"));
 app.use(
-  express.static(path.join(rootDir, "public"), {
+  express.static(path.join(rootDir, "Public"), {
     setHeaders: (res, path, stat) => {
       console.log("p", path);
       let fileExtension = path.split(".").pop();
