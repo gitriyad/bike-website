@@ -29,6 +29,7 @@ exports.getUser = (app) => (req, res, next) => {
   let cookies = new Cookies(req, res);
   let token = cookies.get("RT");
   console.log("token", token);
+  console.log("mac", mac);
   return User.findOne({ mac: mac, token: token }).then((user) => {
     if (user) {
       req.user = user;
@@ -37,12 +38,14 @@ exports.getUser = (app) => (req, res, next) => {
       // app.locals.isLoggedIn = req.session.isLoggedIn;
       // app.locals.admin = req.session.user.admin;
       // app.locals.user = req.session.user._id;
+      console.log("user login");
       next();
     } else {
       req.session.isLoggedIn = false;
       // app.locals.isLoggedIn = req.session.isLoggedIn;
       // app.locals.admin = false;
       // app.locals.user = false;
+      console.log("user not login");
       next();
     }
   });
