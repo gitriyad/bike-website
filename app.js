@@ -37,7 +37,6 @@ app.set("views", path.join(rootDir, "Views", "View"));
 app.use(
   express.static(path.join(rootDir, "Public"), {
     setHeaders: (res, path, stat) => {
-      console.log("p", path);
       let fileExtension = path.split(".").pop();
       // Set Content-Type based on the file extension
       if (fileExtension == "js") {
