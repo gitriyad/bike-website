@@ -18,20 +18,19 @@ exports.setHeaders = (req, res, next) => {
 };
 
 exports.getUser = (app) => (req, res, next) => {
-  let netInterface = os.networkInterfaces();
-  let mac = "";
-  Object.keys(netInterface).forEach((interface) => {
-    console.log("interface", interface);
-    if (interface == "Wi-Fi") {
-      let deviceNetDetails = netInterface[interface];
-      mac = deviceNetDetails[0].mac;
-    }
-  });
+  // let netInterface = os.networkInterfaces();
+  // let mac = "";
+  // Object.keys(netInterface).forEach((interface) => {
+  //   console.log("interface", interface);
+  //   if (interface == "Wi-Fi") {
+  //     let deviceNetDetails = netInterface[interface];
+  //     mac = deviceNetDetails[0].mac;
+  //   }
+  // });
   let cookies = new Cookies(req, res);
   let token = cookies.get("RT");
   console.log("token", token);
-  console.log("mac", mac);
-  return User.findOne({ mac: mac, token: token }).then((user) => {
+  return User.findOne({ token: token }).then((user) => {
     if (user) {
       req.user = user;
       req.session.user = user;
