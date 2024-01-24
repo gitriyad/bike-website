@@ -11,6 +11,7 @@
   "author": "Md. Nurul Huda Riyad",
   "license": "ISC",
   "dependencies": {
+    "@cyclic.sh/s3fs": "^1.2.9",
     "bcrypt": "^5.1.1",
     "connect-mongodb-session": "^3.1.1",
     "cookies": "^0.8.0",

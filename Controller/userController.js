@@ -1,6 +1,7 @@
 // require packages
 let formidable = require("formidable");
-let fs = require("fs");
+// let fs = require("fs");
+let fs = require("@cyclic.sh/s3fs")(S3_BUCKET_NAME);
 let path = require("path");
 let mongoose = require("mongoose");
 let rootDir = require("../Utility/root");
