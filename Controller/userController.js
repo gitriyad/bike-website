@@ -118,7 +118,7 @@ exports.postAddBike = async (req, res, next) => {
     })
     .then(({ bike, images }) => {
       res.send("Successfull");
-      let rootPath = path.join(rootDir, "public", "upload", "brand");
+      let rootPath = path.join(rootDir, "Public", "upload", "brand");
       let newPath = path.join(bike.brand, bike.bikeName, "images");
       makeFolders(rootPath, newPath);
       images.forEach((img) => {

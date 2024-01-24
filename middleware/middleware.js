@@ -29,7 +29,6 @@ exports.getUser = (app) => (req, res, next) => {
   // });
   let cookies = new Cookies(req, res);
   let token = cookies.get("RT");
-  console.log("token", token);
   return User.findOne({ token: token }).then((user) => {
     if (user) {
       req.user = user;
