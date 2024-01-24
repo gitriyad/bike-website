@@ -36,6 +36,15 @@
   left: 0;
   cursor: normal;
 }
+.bikeName {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(75, 0, 130, 0.8);
+  font-size: 0.9rem;
+}
 
 .viewBike,
 .editBike {

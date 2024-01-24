@@ -37,7 +37,6 @@ exports.getUser = (app) => (req, res, next) => {
       // app.locals.isLoggedIn = req.session.isLoggedIn;
       // app.locals.admin = req.session.user.admin;
       // app.locals.user = req.session.user._id;
-      console.log("user login");
       next();
     } else {
       req.session.isLoggedIn = false;
