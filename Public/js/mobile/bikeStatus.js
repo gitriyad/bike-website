@@ -25,7 +25,6 @@ function fetchReq(btn) {
       let div = document.createElement("div");
       div.innerHTML = data;
       unPubviewArea.innerHTML = div.innerHTML;
-      <dashboard></dashboard>;
     })
     .catch((err) => {
       overlayIcon.style.color = "red";
