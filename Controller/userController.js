@@ -1,9 +1,7 @@
 // require packages
 let formidable = require("formidable");
 // let fs = require("fs");
-let fs = require("@cyclic.sh/s3fs")(
-  cyclic - lovely - cow - loafers - ap - southeast - 2
-);
+let fs = require("@cyclic.sh/s3fs");
 let path = require("path");
 let mongoose = require("mongoose");
 let rootDir = require("../Utility/root");
