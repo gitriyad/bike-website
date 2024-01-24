@@ -136,9 +136,12 @@ exports.postAddBike = async (req, res, next) => {
             if (bike[key]) {
               if (Array.isArray(bike[key])) {
                 filterArr[0][key].push(...bike[key]);
-                filterArr[0][key] = [...new Set(filterArr[0][key])];
+                let upperCaseFilterArr = filterArr[0][key].map((item) =>
+                  item.toUpperCase()
+                );
+                filterArr[0][key] = [...new Set(upperCaseFilterArr)];
               } else {
-                filterArr[0][key].push(bike[key]);
+                filterArr[0][key].push(bike[key].toUpperCase());
                 filterArr[0][key] = [...new Set(filterArr[0][key])];
               }
             }
@@ -149,9 +152,12 @@ exports.postAddBike = async (req, res, next) => {
           filterProps.forEach((key) => {
             if (bike[key]) {
               if (Array.isArray(bike[key])) {
-                filter[key] = bike[key];
+                let upperCaseFilterArr = bike[key].map((item) =>
+                  item.toUpperCase()
+                );
+                filter[key] = upperCaseFilterArr;
               } else {
-                filter[key] = [bike[key]];
+                filter[key] = [bike[key].toUpperCase()];
               }
             }
           });
