@@ -214,7 +214,7 @@ exports.getRemoveImageFromServer = (req, res, next) => {
     .then(({ bike, imageName }) => {
       let imagePath = path.join(
         rootDir,
-        "public",
+        "Public",
         "upload",
         "brand",
         bike.brand,
@@ -233,7 +233,7 @@ exports.getRemoveImageFromServer = (req, res, next) => {
     .then(({ bike, files, imageName }) => {
       let imagePath = path.join(
         rootDir,
-        "public",
+        "Public",
         "upload",
         "brand",
         bike.brand,
